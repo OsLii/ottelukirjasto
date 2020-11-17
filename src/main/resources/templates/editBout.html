@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Edit bout</title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+</head>
+<body>
+	<h1>Edit bout</h1>
+	<div class="input-group mb-3">
+		<form th:object="${bout}" th:action="@{../save}" action="#"
+			method="post">
+			<input type="hidden" th:field="*{id}" /> Competitor 1: <input
+				type="text" class="form-control" th:field="*{competitor1}" /> <br />
+			Competitor 2: <input type="text" class="form-control"
+				th:field="*{competitor2}" /> <br /> Organization: <input
+				type="text" class="form-control" th:field="*{organization}" /> <br />
+			Place: <input type="text" class="form-control" th:field="*{place}" />
+			<br /> Division: <input type="text" class="form-control"
+				th:field="*{division}" /> <br /> Date: <input type="text"
+				class="form-control" th:field="*{date}" /> <br /> More info: <input
+				type="text" class="form-control" th:field="*{info}" /> <input
+				type="submit" class="btn btn-success" value="Save"></input>
+
+		</form>
+	</div>
+</body>
+</html>
