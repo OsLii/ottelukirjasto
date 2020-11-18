@@ -1,11 +1,10 @@
 package com.example.ottelukirjasto.model;
 
-import java.util.Optional;
-
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 public interface BoutRepository extends CrudRepository<Bout, Long> {
 
-	Optional<Bout> findById(Long id);
+	List<Bout> findByCompetitor1(String competitor1);
 
 }

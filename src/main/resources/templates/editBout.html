@@ -14,14 +14,18 @@
 			<input type="hidden" th:field="*{id}" /> Competitor 1: <input
 				type="text" class="form-control" th:field="*{competitor1}" /> <br />
 			Competitor 2: <input type="text" class="form-control"
-				th:field="*{competitor2}" /> <br /> Organization: <input
-				type="text" class="form-control" th:field="*{organization}" /> <br />
-			Place: <input type="text" class="form-control" th:field="*{place}" />
-			<br /> Division: <input type="text" class="form-control"
-				th:field="*{division}" /> <br /> Date: <input type="text"
-				class="form-control" th:field="*{date}" /> <br /> More info: <input
-				type="text" class="form-control" th:field="*{info}" /> <input
-				type="submit" class="btn btn-success" value="Save"></input>
+				th:field="*{competitor2}" /> <br /> <label for="dropdownlist">Organization:
+			</label> <select id="dropdownlist" th:field="*{organization}"
+				class="form-control">
+				<option th:each="organization: ${organizations}"
+					th:value="${organization.organizationid}"
+					th:text="${organization.name}"></option>
+			</select><br /> Place: <input type="text" class="form-control"
+				th:field="*{place}" /> <br /> Division: <input type="text"
+				class="form-control" th:field="*{division}" /> <br /> Date: <input
+				type="text" class="form-control" th:field="*{date}" /> <br /> More
+			info: <input type="text" class="form-control" th:field="*{info}" />
+			<input type="submit" class="btn btn-success" value="Save"></input>
 
 		</form>
 	</div>

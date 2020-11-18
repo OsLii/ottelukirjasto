@@ -9,6 +9,14 @@
 </head>
 <body>
 
+	<h1 th:inline="text">Welcome, [[${#httpServletRequest.remoteUser}]]</h1>
+
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sign Out" />
+	</form>
+
+	<br />
+
 	<h2>Bouts</h2>
 	<table class="table table-striped">
 		<tbody>
@@ -20,8 +28,8 @@
 				<th>Division</th>
 				<th>Date</th>
 				<th>More info</th>
-				<th></th>
-				<th></th>
+				<th sec:authorize="hasAuthority('ADMIN')"></th>
+				<th sec:authorize="hasAuthority('ADMIN')"></th>
 			</tr>
 		</tbody>
 		<tbody>
@@ -29,19 +37,19 @@
 			<tr th:each="bout : ${bouts}">
 				<td th:text="${bout.competitor1}"></td>
 				<td th:text="${bout.competitor2}"></td>
-				<td th:text="${bout.organization}"></td>
+				<td th:text="${bout.organization.name}"></td>
 				<td th:text="${bout.place}"></td>
 				<td th:text="${bout.division}"></td>
 				<td th:text="${bout.date}"></td>
 				<td th:text="${bout.info}"></td>
-				<td><a class="btn btn-danger"
-					th:href="@{/delete/{id}(id=${bout.id})}">Delete</a></td>
-				<td><a class="btn btn-primary"
-					th:href="@{/edit/{id}(id=${bout.id})}">Edit</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a
+					class="btn btn-danger" th:href="@{/delete/{id}(id=${bout.id})}">Delete</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a
+					class="btn btn-primary" th:href="@{/edit/{id}(id=${bout.id})}">Edit</a></td>
 			</tr>
 		</tbody>
 	</table>
-	<div>
+	<div sec:authorize="hasAuthority('ADMIN')">
 		<a class="btn btn-success" href="/add">Add a new bout</a>
 	</div>
 

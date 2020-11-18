@@ -4,28 +4,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Bout {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 	private String competitor1;
 	private String competitor2;
-	private String organization;
 	private String place;
 	private String division;
 	private String date;
 	private String info;
+
+	@ManyToOne
+	@JoinColumn(name = "organizationid")
+	@JsonManagedReference
+	private Organization organization;
 
 	public Bout() {
 		super();
 
 	}
 
-	public Bout(String competitor1, String competitor2, String organization, String place, String division, String date,
-			String info) {
+	public Bout(String competitor1, String competitor2, Organization organization, String place, String division,
+			String date, String info) {
 		super();
 		this.competitor1 = competitor1;
 		this.competitor2 = competitor2;
@@ -36,11 +44,11 @@ public class Bout {
 		this.info = info;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -60,11 +68,11 @@ public class Bout {
 		this.competitor2 = competitor2;
 	}
 
-	public String getOrganization() {
+	public Organization getOrganization() {
 		return organization;
 	}
 
-	public void setOrganization(String organization) {
+	public void setOrganization(Organization organization) {
 		this.organization = organization;
 	}
 
@@ -98,6 +106,19 @@ public class Bout {
 
 	public void setInfo(String info) {
 		this.info = info;
+	}
+
+	@Override
+	public String toString() {
+		if (this.organization != null) {
+			return "Bout [id=" + id + ", competitor1=" + competitor1 + ", competitor2=" + competitor2 + ", place="
+					+ place + ", division=" + division + ", date=" + date + ", info=" + info + ", organization="
+					+ ", getCategory()=" + this.getOrganization() + "]";
+		} else {
+			return "Bout [id=" + id + ", competitor1=" + competitor1 + ", competitor2=" + competitor2 + ", place="
+					+ place + ", division=" + division + ", date=" + date + ", info=" + info + "]";
+
+		}
 	}
 
 }

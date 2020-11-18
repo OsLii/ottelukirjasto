@@ -14,17 +14,22 @@
 				class="form-control" id="competitor1" th:field="*{competitor1}" /><br />
 			<label for="competitor1">Competitor 2: </label> <input type="text"
 				class="form-control" id="competitor2" th:field="*{competitor2}" />
-			<br /> <label for="organization">Organization: </label> <input
-				type="text" class="form-control" id="organization"
-				th:field="*{organization}" /> <br /> <label for="place">Place:</label>
-			<input type="text" class="form-control" id="place"
-				th:field="*{place}" /> <br /> <label for="division">Division:
-			</label> <input type="text" class="form-control" id="division"
-				th:field="*{division}" /> <br /> <label for="date">Date: </label>
-			<input type="text" class="form-control" id="date" th:field="*{date}" />
-			<br /> <label for="info">More info: </label> <input type="text"
-				class="form-control" id="info" th:field="*{info}" /> <br />
-			<input type="submit" class="btn btn-success" value="Save"></input>
+			<br />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="deplist">Organization: </label> <select id="deplist"
+				th:field="*{organization}" class="form-control">
+				<option th:each="organization: ${organizations}"
+					th:value="${organization.organizationid}"
+					th:text="${organization.name}"></option>
+			</select> <br /> <label for="place">Place:</label> <input type="text"
+				class="form-control" id="place" th:field="*{place}" /> <br /> <label
+				for="division">Division: </label> <input type="text"
+				class="form-control" id="division" th:field="*{division}" /> <br />
+			<label for="date">Date: </label> <input type="text"
+				class="form-control" id="date" th:field="*{date}" /> <br /> <label
+				for="info">More info: </label> <input type="text"
+				class="form-control" id="info" th:field="*{info}" /> <br /> <input
+				type="submit" class="btn btn-success" value="Save"></input>
 		</form>
 	</div>
 	<div>
