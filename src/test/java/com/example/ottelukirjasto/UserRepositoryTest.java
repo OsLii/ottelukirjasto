@@ -9,7 +9,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.example.ottelukirjasto.model.User;
 import com.example.ottelukirjasto.model.UserRepository;
 
-@RunWith(SpringRunner.class)
 @DataJpaTest
 public class UserRepositoryTest {
 	@Autowired

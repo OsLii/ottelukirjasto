@@ -10,7 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.example.ottelukirjasto.model.Organization;
 import com.example.ottelukirjasto.model.OrganizationRepository;
 
-@RunWith(SpringRunner.class)
 @DataJpaTest
 public class OrganizationRepositoryTest {
 	@Autowired
