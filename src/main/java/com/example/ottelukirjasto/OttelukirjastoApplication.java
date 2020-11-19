@@ -27,13 +27,15 @@ public class OttelukirjastoApplication {
 			UserRepository urepository) {
 		return (args) -> {
 			log.info("save a couple of bouts");
-
+			
+			//Luodaan organisaatioita
 			orepository.save(new Organization("Ultimate Fighting Championship"));
 			orepository.save(new Organization("Bellator MMA"));
 			orepository.save(new Organization("ONE Championship"));
 			orepository.save(new Organization("Cage Warriors"));
 			orepository.save(new Organization("Cage (MMA Finland)"));
-
+			
+			//Luodaan otteluita
 			Bout bout1 = new Bout("Darrion Caldwell", "Aj McKee",
 					orepository.findByName("Ultimate Fighting Championship").get(0),
 					"Mohegan Sun Arena, Uncasville, CT", "Featherweight", "19.11.2020",
@@ -47,6 +49,7 @@ public class OttelukirjastoApplication {
 					orepository.findByName("Ultimate Fighting Championship").get(0), "Madison Square Garden",
 					"Light Heavyweight", "19.04.2021", "Superfight");
 
+			//Tallennetaan ottelut
 			brepository.save(bout1);
 			brepository.save(bout2);
 			brepository.save(bout3);
@@ -57,10 +60,13 @@ public class OttelukirjastoApplication {
 
 			}
 
+			//Luodaan user1(user) ja user2(admin)
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6",
 					"user@haaga-helia.fi", "USER");
 			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C",
 					"admin@haaga-helia.fi", "ADMIN");
+			
+			//Tallennetaan user ja admin
 			urepository.save(user1);
 			urepository.save(user2);
 

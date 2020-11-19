@@ -12,6 +12,7 @@ public class UserRepositoryTest {
 	@Autowired
 	private UserRepository repository;
 
+	// Luodaan uusi testiuser, lsätään se listaan ja katsotaan että listassa on user
 	@Test
 	public void createNewUser() {
 		User user = new User("TestUser", "TestUserPassword", "TestUserEmail", "User");

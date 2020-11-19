@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 public class Bout {
 
+	// Id luodaan automaattisesti
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -111,9 +112,9 @@ public class Bout {
 	@Override
 	public String toString() {
 		if (this.organization != null) {
-			return "Bout [id=" + id + ", competitor1=" + competitor1 + ", competitor2=" + competitor2 + ", place="
-					+ place + ", division=" + division + ", date=" + date + ", info=" + info + ", organization="
-					+ ", getCategory()=" + this.getOrganization() + "]";
+			return "Bout [id=" + id + ", competitor1=" + competitor1 + ", competitor2=" + competitor2
+					+ ", organization=" + ", getOrganization()=" + this.getOrganization() + ", place=" + place
+					+ ", division=" + division + ", date=" + date + ", info=" + info + "]";
 		} else {
 			return "Bout [id=" + id + ", competitor1=" + competitor1 + ", competitor2=" + competitor2 + ", place="
 					+ place + ", division=" + division + ", date=" + date + ", info=" + info + "]";

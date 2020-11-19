@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Organization {
 
+	// Id luodaan automaattisesti
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long organizationid;
@@ -24,7 +25,6 @@ public class Organization {
 
 	public Organization() {
 		super();
-
 	}
 
 	public Organization(String name) {
@@ -55,5 +55,4 @@ public class Organization {
 	public void setBouts(List<Bout> bouts) {
 		this.bouts = bouts;
 	}
-
 }

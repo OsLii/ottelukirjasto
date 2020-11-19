@@ -13,6 +13,8 @@ public class OrganizationRepositoryTest {
 	@Autowired
 	private OrganizationRepository orepository;
 
+	// Luodaan testiorganisaatio ja haetaan sitä samalla nimellä ja katsotaan
+	// matchaako
 	@Test
 	public void findByIdShouldReturnOrganization() {
 		List<Organization> organizations = orepository.findByName("Bellator MMA");
@@ -20,6 +22,8 @@ public class OrganizationRepositoryTest {
 		assertThat(organizations.get(0).getName()).isEqualTo("Bellator MMA");
 	}
 
+	// Luodaan uusi testiorganisaatio, lsätään se listaan ja katsotaan että listassa
+	// on organisaatio
 	@Test
 	public void createNewOrganization() {
 		Organization organization = new Organization("TestOrganization");
